@@ -8,6 +8,8 @@ import static com.openclassrooms.magicgithub.api.FakeApiServiceGenerator.FAKE_US
 import static com.openclassrooms.magicgithub.api.FakeApiServiceGenerator.FAKE_USERS_RANDOM;
 import static com.openclassrooms.magicgithub.api.FakeApiServiceGenerator.generateUsers;
 
+import android.util.Log;
+
 public class FakeApiService implements ApiService {
 
     private List<User> users = generateUsers();
@@ -29,7 +31,11 @@ public class FakeApiService implements ApiService {
     @Override
     public void generateRandomUser() {
         // TODO: A modifier
-        users.add(User.random());
+        User randomUser = User.random();
+        if(!users.contains(randomUser)) {
+            users.add(randomUser);
+        }
+
 
     }
 
@@ -40,9 +46,7 @@ public class FakeApiService implements ApiService {
     public void deleteUser(User user) {
         // TODO: A modifier
         // if delete btn clicked = delete user TV associated with this btn
-        if (!users.equals(user)) {
             users.remove(user);
-        }
     }
 
 }
