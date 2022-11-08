@@ -46,9 +46,7 @@ public class FakeApiService implements ApiService {
     public void deleteUser(User user) {
         // TODO: A modifier
         // if delete btn clicked = delete user TV associated with this btn
-        if (!users.equals(user)) {
             users.remove(user);
-        }
     }
 
 }
